@@ -108,6 +108,17 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/app.css":
+/*!******************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/app.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nvar ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../images/main-image.jpg */ \"./src/images/main-image.jpg\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\nvar ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);\n// Module\nexports.push([module.i, \"header {\\r\\n    background-image: url(\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \");\\r\\n    height: 100vh;\\r\\n    background-size: cover;\\r\\n    background-repeat: no-repeat;\\r\\n    background-position: center center;\\r\\n    padding-top: 50px; \\r\\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/styles/app.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -117,6 +128,18 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 
 "use strict";
 eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (useSourceMap) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = cssWithMappingToString(item, useSourceMap);\n\n      if (item[2]) {\n        return \"@media \".concat(item[2], \" {\").concat(content, \"}\");\n      }\n\n      return content;\n    }).join('');\n  }; // import a list of modules into the list\n  // eslint-disable-next-line func-names\n\n\n  list.i = function (modules, mediaQuery, dedupe) {\n    if (typeof modules === 'string') {\n      // eslint-disable-next-line no-param-reassign\n      modules = [[null, modules, '']];\n    }\n\n    var alreadyImportedModules = {};\n\n    if (dedupe) {\n      for (var i = 0; i < this.length; i++) {\n        // eslint-disable-next-line prefer-destructuring\n        var id = this[i][0];\n\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n\n    for (var _i = 0; _i < modules.length; _i++) {\n      var item = [].concat(modules[_i]);\n\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        // eslint-disable-next-line no-continue\n        continue;\n      }\n\n      if (mediaQuery) {\n        if (!item[2]) {\n          item[2] = mediaQuery;\n        } else {\n          item[2] = \"\".concat(mediaQuery, \" and \").concat(item[2]);\n        }\n      }\n\n      list.push(item);\n    }\n  };\n\n  return list;\n};\n\nfunction cssWithMappingToString(item, useSourceMap) {\n  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring\n\n  var cssMapping = item[3];\n\n  if (!cssMapping) {\n    return content;\n  }\n\n  if (useSourceMap && typeof btoa === 'function') {\n    var sourceMapping = toComment(cssMapping);\n    var sourceURLs = cssMapping.sources.map(function (source) {\n      return \"/*# sourceURL=\".concat(cssMapping.sourceRoot || '').concat(source, \" */\");\n    });\n    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\n  }\n\n  return [content].join('\\n');\n} // Adapted from convert-source-map (MIT)\n\n\nfunction toComment(sourceMap) {\n  // eslint-disable-next-line no-undef\n  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\n  var data = \"sourceMappingURL=data:application/json;charset=utf-8;base64,\".concat(base64);\n  return \"/*# \".concat(data, \" */\");\n}\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nmodule.exports = function (url, options) {\n  if (!options) {\n    // eslint-disable-next-line no-param-reassign\n    options = {};\n  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign\n\n\n  url = url && url.__esModule ? url.default : url;\n\n  if (typeof url !== 'string') {\n    return url;\n  } // If url is already wrapped in quotes, remove them\n\n\n  if (/^['\"].*['\"]$/.test(url)) {\n    // eslint-disable-next-line no-param-reassign\n    url = url.slice(1, -1);\n  }\n\n  if (options.hash) {\n    // eslint-disable-next-line no-param-reassign\n    url += options.hash;\n  } // Should url be wrapped?\n  // See https://drafts.csswg.org/css-values-3/#urls\n\n\n  if (/[\"'() \\t\\n]/.test(url) || options.needQuotes) {\n    return \"\\\"\".concat(url.replace(/\"/g, '\\\\\"').replace(/\\n/g, '\\\\n'), \"\\\"\");\n  }\n\n  return url;\n};\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/getUrl.js?");
 
 /***/ }),
 
@@ -132,6 +155,18 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/images/main-image.jpg":
+/*!***********************************!*\
+  !*** ./src/images/main-image.jpg ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"images/018aa1dde29998ae0b172ba85ac57f70-main-image.jpg\");\n\n//# sourceURL=webpack:///./src/images/main-image.jpg?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -140,7 +175,66 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__);\n\nconsole.log(\"Just setting up\");\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _styles_app_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/app.css */ \"./src/styles/app.css\");\n/* harmony import */ var _styles_app_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_app_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _pages_home_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/home/header */ \"./src/pages/home/header/index.js\");\n\n\n\nconsole.log(_pages_home_header__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\ndocument.getElementById('content').appendChild(new _pages_home_header__WEBPACK_IMPORTED_MODULE_2__[\"default\"]().render());\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/pages/home/header/index.js":
+/*!****************************************!*\
+  !*** ./src/pages/home/header/index.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Header; });\n/* harmony import */ var _nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./nav */ \"./src/pages/home/header/nav/index.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\nvar Header = /*#__PURE__*/function () {\n  function Header() {\n    _classCallCheck(this, Header);\n  }\n\n  _createClass(Header, [{\n    key: \"render\",\n    value: function render() {\n      var headerContainer = document.createElement('header');\n      headerContainer.classList.add('container-fluid');\n      headerContainer.appendChild(new _nav__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().render());\n      return headerContainer;\n    }\n  }]);\n\n  return Header;\n}();\n\n\n\n//# sourceURL=webpack:///./src/pages/home/header/index.js?");
+
+/***/ }),
+
+/***/ "./src/pages/home/header/nav/index.js":
+/*!********************************************!*\
+  !*** ./src/pages/home/header/nav/index.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Nav; });\n/* harmony import */ var _logo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo */ \"./src/pages/home/header/nav/logo.js\");\n/* harmony import */ var _links__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./links */ \"./src/pages/home/header/nav/links.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\n\nvar Nav = /*#__PURE__*/function () {\n  function Nav() {\n    _classCallCheck(this, Nav);\n  }\n\n  _createClass(Nav, [{\n    key: \"render\",\n    value: function render() {\n      var navContainer = document.createElement('div');\n      navContainer.classList.add('row');\n      navContainer.classList.add('justify-content-around');\n      navContainer.appendChild(new _logo__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().render());\n      navContainer.appendChild(new _links__WEBPACK_IMPORTED_MODULE_1__[\"default\"]().render());\n      return navContainer;\n    }\n  }]);\n\n  return Nav;\n}();\n\n\n\n//# sourceURL=webpack:///./src/pages/home/header/nav/index.js?");
+
+/***/ }),
+
+/***/ "./src/pages/home/header/nav/links.js":
+/*!********************************************!*\
+  !*** ./src/pages/home/header/nav/links.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Links; });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar Links = /*#__PURE__*/function () {\n  function Links() {\n    _classCallCheck(this, Links);\n\n    this.navList = ['Menu', 'Location', 'About'];\n  }\n\n  _createClass(Links, [{\n    key: \"renderButton\",\n    value: function renderButton() {\n      var button = document.createElement('button');\n      var span = document.createElement('span');\n      button.classList.add('navbar-toggler');\n      button.setAttribute('type', 'button');\n      button.setAttribute('data-toggle', 'collapse');\n      button.setAttribute('data-target', '#navbarNav');\n      button.setAttribute('aria-controls', 'navbarNav');\n      button.setAttribute('aria-expanded', 'false');\n      button.setAttribute('aria-label', 'Toggle navigation');\n      span.classList.add('navbar-toggler-icon');\n      button.appendChild(span);\n      return button;\n    }\n  }, {\n    key: \"renderNavItem\",\n    value: function renderNavItem(navItem) {\n      var navItemElement = document.createElement('li');\n      var navAnchorElement = document.createElement('a');\n      navItemElement.classList.add('nav-item');\n      navAnchorElement.classList.add('nav-link');\n      navAnchorElement.setAttribute('href', '#');\n      navAnchorElement.innerText = navItem;\n      navItemElement.appendChild(navAnchorElement);\n      return navItemElement;\n    }\n  }, {\n    key: \"renderNavList\",\n    value: function renderNavList() {\n      var _this = this;\n\n      var navListContainer = document.createElement('div');\n      var navListElement = document.createElement('ul');\n      navListContainer.classList.add('collapse');\n      navListContainer.classList.add('navbar-collapse');\n      navListContainer.setAttribute('id', 'navbarNav');\n      navListElement.classList.add('navbar-nav');\n      navListElement.classList.add('d-flex');\n      navListElement.classList.add('justify-content-between');\n      navListElement.classList.add('w-100');\n      this.navList.forEach(function (navItem) {\n        navListElement.appendChild(_this.renderNavItem(navItem));\n      });\n      navListContainer.appendChild(navListElement);\n      return navListContainer;\n    }\n  }, {\n    key: \"renderNavElement\",\n    value: function renderNavElement() {\n      var navElement = document.createElement('nav');\n      navElement.classList.add('navbar');\n      navElement.classList.add('navbar-expand-lg');\n      navElement.classList.add('navbar-dark');\n      navElement.appendChild(this.renderButton());\n      navElement.appendChild(this.renderNavList());\n      return navElement;\n    }\n  }, {\n    key: \"render\",\n    value: function render() {\n      var logoContainer = document.createElement('div');\n      logoContainer.classList.add('col-3');\n      logoContainer.appendChild(this.renderNavElement());\n      return logoContainer;\n    }\n  }]);\n\n  return Links;\n}();\n\n\n\n//# sourceURL=webpack:///./src/pages/home/header/nav/links.js?");
+
+/***/ }),
+
+/***/ "./src/pages/home/header/nav/logo.js":
+/*!*******************************************!*\
+  !*** ./src/pages/home/header/nav/logo.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Logo; });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar Logo = /*#__PURE__*/function () {\n  function Logo() {\n    _classCallCheck(this, Logo);\n  }\n\n  _createClass(Logo, [{\n    key: \"renderNavAnchor\",\n    value: function renderNavAnchor() {\n      var anchorElement = document.createElement('a');\n      anchorElement.classList.add('navbar-brand');\n      anchorElement.innerText = \"Cagarweyne Restaurant\";\n      return anchorElement;\n    }\n  }, {\n    key: \"renderNavElement\",\n    value: function renderNavElement() {\n      var navElement = document.createElement('nav');\n      navElement.classList.add('navbar');\n      navElement.classList.add('navbar-dark');\n      navElement.classList.add('bg-primary');\n      navElement.classList.add('d-flex');\n      navElement.classList.add('justify-content-center');\n      navElement.classList.add('rounded-lg');\n      navElement.appendChild(this.renderNavAnchor());\n      return navElement;\n    }\n  }, {\n    key: \"render\",\n    value: function render() {\n      var logoContainer = document.createElement('div');\n      logoContainer.classList.add('col-2');\n      logoContainer.appendChild(this.renderNavElement());\n      return logoContainer;\n    }\n  }]);\n\n  return Logo;\n}();\n\n\n\n//# sourceURL=webpack:///./src/pages/home/header/nav/logo.js?");
+
+/***/ }),
+
+/***/ "./src/styles/app.css":
+/*!****************************!*\
+  !*** ./src/styles/app.css ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./app.css */ \"./node_modules/css-loader/dist/cjs.js!./src/styles/app.css\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\nvar exported = content.locals ? content.locals : {};\n\n\n\nmodule.exports = exported;\n\n//# sourceURL=webpack:///./src/styles/app.css?");
 
 /***/ })
 

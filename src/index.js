@@ -1,2 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-console.log("Just setting up");
+import './styles/app.css';
+import Header from './pages/home/header';
+
+console.log(Header);
+
+document.getElementById('content').appendChild(new Header().render());

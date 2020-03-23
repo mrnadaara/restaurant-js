@@ -15,6 +15,26 @@ module.exports = {
                 presets: ['@babel/preset-env']
               }
             }
+          },
+          {
+            test: /\.(gif|png|jpe?g|svg)$/i,
+            use: [
+              {
+                loader: 'url-loader',
+                options: {
+                  limit: 8192,
+                  fallback: "file-loader",
+                  name: 'images/[hash]-[name].[ext]'
+                },
+              },
+              {
+                loader: 'image-webpack-loader',
+                options: {
+                  bypassOnDebug: true, // webpack@1.x
+                  disable: true, // webpack@2.x and newer
+                },
+              },
+            ],
           }
         ]
     }
