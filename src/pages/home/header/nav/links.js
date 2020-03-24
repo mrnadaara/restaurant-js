@@ -1,7 +1,7 @@
 export default class Links {
     constructor(){
         this.navList = [
-            'Menu',
+            'Home',
             'Location',
             'About'
         ];

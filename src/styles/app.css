@@ -1,8 +1,16 @@
 header {
     background-image: url('../images/main-image.jpg');
-    height: 100vh;
+    height: 80vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     padding-top: 50px; 
+}
+
+.tab-header {
+    margin-bottom: 0;
+}
+
+.tab-active {
+    
 }
