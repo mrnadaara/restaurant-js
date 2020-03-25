@@ -22,6 +22,12 @@
 
 This app currently does not including testing. 
 
+## Future releases
+
+1. Add a carousel to showcase gallery of images
+2. Add splash screen before page loads up
+3. Animate fade in and fade out for tab content when in entering and leaving view
+
 # Contributor:
 
 ## Sharmarke Ahmed
