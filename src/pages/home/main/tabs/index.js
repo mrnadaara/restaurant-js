@@ -1,31 +1,39 @@
 import Menu from "./menu";
 import Contact from "./contact";
+import {DOMHelper} from "../../../../Helpers";
 
 class Tabs{
     constructor(tabsList){
         this.tabsList = tabsList;
     }
     renderTabHeader(tabItem, index){
-        const tabContainer = document.createElement('div');
-        const innerContainer = document.createElement('div');
-        const anchorElement = document.createElement('a');
-        const headerElement = document.createElement('h1');
-        tabContainer.classList.add('col-2');
-        tabContainer.classList.add('p-0');
-        innerContainer.classList.add('border-right');
-        innerContainer.classList.add('bg-light');
-        anchorElement.setAttribute('href', '#');
-        anchorElement.classList.add('text-dark');
-        anchorElement.classList.add('text-decoration-none');
-        headerElement.classList.add('p-3');
-        headerElement.classList.add('tab-header');
-        headerElement.classList.add('display-4');
+        const tabContainer = DOMHelper.createElement(
+            'div',
+            ['col-2', 'p-0']
+        );
+        const innerContainer = DOMHelper.createElement(
+            'div',
+            ['border-right', 'bg-light']
+        );
+        const anchorElement = DOMHelper.createElement(
+            'a',
+            ['text-dark', 'text-decoration-none'],
+            [
+                {prop: 'href', value: '#'}
+            ]
+        );
+        const headerElement = DOMHelper.createElement(
+            'h1',
+            ['p-3', 'tab-header', 'display-4'],
+            [
+                {prop: 'id', value: index.toString()}
+            ]
+        );
         headerElement.innerText = tabItem;
         if(index === 0) {
             headerElement.classList.add('bg-primary');
             headerElement.classList.add('text-white');
         }
-        headerElement.setAttribute('id', index.toString());
         anchorElement.appendChild(headerElement);
         innerContainer.appendChild(anchorElement);
         tabContainer.appendChild(innerContainer);
@@ -40,10 +48,10 @@ class Tabs{
         prevElement.classList.remove('text-white');
     }
     render(){
-        const tabHeaderContainer = document.createElement('div');
-        tabHeaderContainer.classList.add('row');
-        tabHeaderContainer.classList.add('justify-content-start');
-        tabHeaderContainer.classList.add('border-bottom');
+        const tabHeaderContainer = DOMHelper.createElement(
+            'div',
+            ['row', 'justify-content-start', 'border-bottom']
+        );
         this.tabsList.forEach((tabItem, index) => {
             const tabElement = this.renderTabHeader(tabItem.name, index);
             tabHeaderContainer.appendChild(tabElement);

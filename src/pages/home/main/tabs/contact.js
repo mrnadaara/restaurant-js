@@ -1,57 +1,87 @@
+import {DOMHelper} from "../../../../Helpers";
+
 export default class Contact{
     renderButton(){
-        const button = document.createElement('button');
-        button.setAttribute('type', 'submit');
-        button.classList.add('btn');
-        button.classList.add('btn-primary');
-        button.classList.add('btn-lg');
-        button.classList.add('btn-block');
+        const button = DOMHelper.createElement(
+            'button',
+            ['btn', 'btn-primary', 'btn-lg', 'btn-block'],
+            [
+                {prop: 'type', value: 'submit'}
+            ]
+        );
         button.innerText = "Submit";
         return button;
     }
     renderEmail(){
-        const container = document.createElement('div');
-        const label = document.createElement('label');
-        const input = document.createElement('input');
-        const small = document.createElement('small');
-        input.setAttribute('type','email');
-        input.setAttribute('id','email');
-        input.setAttribute('aria-describedby','emailHelp');
-        input.setAttribute('placeholder','Enter email');
-        input.classList.add('form-control');
-        small.setAttribute('id','emailHelp');
-        small.classList.add('form-text');
-        small.classList.add('text-muted');
+        const container = DOMHelper.createElement(
+            'div',
+            ['form-group']
+        );
+        const label = DOMHelper.createElement(
+            'label',
+            null,
+            [
+                {prop: 'for', value: 'email'}
+            ]
+        );
+        const input = DOMHelper.createElement(
+            'input',
+            ['form-control'],
+            [
+                {prop: 'type', value: 'email'},
+                {prop: 'id', value: 'email'},
+                {prop: 'aria-describedby', value: 'emailHelp'},
+                {prop: 'placeholder', value: 'Enter email'}
+            ]
+        );
+        const small = DOMHelper.createElement(
+            'small',
+            ['form-text', 'text-muted'],
+            [
+                {prop: 'id', value: 'emailHelp'}
+            ]
+        );
         small.innerText = "We'll never share your email with anyone else.";
-        label.setAttribute('for', 'email');
         label.innerText = "Email address";
-        container.classList.add('form-group');
         container.appendChild(label);
         container.appendChild(input);
         container.appendChild(small);
         return container;
     }
     renderMessage(){
-        const container = document.createElement('div');
-        const label = document.createElement('label');
-        const textarea = document.createElement('textarea');
-        textarea.setAttribute('rows','3');
-        textarea.setAttribute('id','message');
-        textarea.classList.add('form-control');
-        label.setAttribute('for', 'message');
+        const container = DOMHelper.createElement(
+            'div',
+            ['form-group']
+        );
+        const label = DOMHelper.createElement(
+            'label',
+            null,
+            [
+                {prop: 'for', value: 'message'}
+            ]
+        );
+        const textarea = DOMHelper.createElement(
+            'textarea',
+            ['form-control'],
+            [
+                {prop: 'rows', value: '3'},
+                {prop: 'id', value: 'message'}
+            ]
+        );
         label.innerText = "Message";
-        container.classList.add('form-group');
         container.appendChild(label);
         container.appendChild(textarea);
         return container;
     }
     renderFormContainer(){
-        const container = document.createElement('div');
-        const formElement = document.createElement('form');
-        container.classList.add('row');
-        container.classList.add('justify-content-center');
-        formElement.classList.add('w-50');
-        formElement.classList.add('pb-5');
+        const container = DOMHelper.createElement(
+            'div',
+            ['row', 'justify-content-center']
+        );
+        const formElement = DOMHelper.createElement(
+            'form',
+            ['w-50', 'pb-5']
+        );
         formElement.appendChild(this.renderEmail());
         formElement.appendChild(this.renderMessage());
         formElement.appendChild(this.renderButton());
@@ -59,23 +89,27 @@ export default class Contact{
         return container;
     }
     renderHeader(){
-        const container = document.createElement('div');
-        const headerElement = document.createElement('h1');
-        container.classList.add('row');
-        container.classList.add('justify-content-center');
-        container.classList.add('p-4');
-        headerElement.classList.add('text-dark');
-        headerElement.classList.add('display-4');
+        const container = DOMHelper.createElement(
+            'div',
+            ['row', 'justify-content-center', 'p-4']
+        );
+        const headerElement = DOMHelper.createElement(
+            'h1',
+            ['text-dark', 'display-4']
+        );
         headerElement.innerText = "Contact Us:";
         container.appendChild(headerElement);
         return container;
     }
     render(){
-        const container = document.createElement('div');
-        const innerContainer = document.createElement('div');
-        container.classList.add('row');
-        container.classList.add('justify-content-center');
-        innerContainer.classList.add('container');
+        const container = DOMHelper.createElement(
+            'div',
+            ['row', 'justify-content-center']
+        );
+        const innerContainer = DOMHelper.createElement(
+            'div',
+            ['container']
+        );
         innerContainer.appendChild(this.renderHeader());
         innerContainer.appendChild(this.renderFormContainer());
         container.appendChild(innerContainer);

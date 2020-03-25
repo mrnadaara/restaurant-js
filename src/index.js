@@ -4,8 +4,10 @@ import Header from './pages/home/header';
 import Main from "./pages/home/main";
 import {Tabs, Menu, Contact} from "./pages/home/main/tabs";
 
-document.getElementById('content').appendChild(new Header().render());
-document.getElementById('content').appendChild(new Main().render());
+const contentElement = document.getElementById('content');
+
+contentElement.appendChild(new Header().render());
+contentElement.appendChild(new Main().render());
 
 class SwitchTabs{
     constructor(){

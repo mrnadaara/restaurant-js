@@ -1,3 +1,5 @@
+import {DOMHelper} from "../../../../Helpers";
+
 export default class Links {
     constructor(){
         this.navList = [
@@ -7,39 +9,53 @@ export default class Links {
         ];
     }
     renderButton(){
-        const button = document.createElement('button');
-        const span = document.createElement('span');
-        button.classList.add('navbar-toggler');
-        button.setAttribute('type', 'button');
-        button.setAttribute('data-toggle', 'collapse');
-        button.setAttribute('data-target', '#navbarNav');
-        button.setAttribute('aria-controls', 'navbarNav');
-        button.setAttribute('aria-expanded', 'false');
-        button.setAttribute('aria-label', 'Toggle navigation');
-        span.classList.add('navbar-toggler-icon');
+        const button = DOMHelper.createElement(
+            'button',
+            ['navbar-toggler'],
+            [
+                {prop: 'type', value: 'button'},
+                {prop: 'data-toggle', value: 'collapse'},
+                {prop: 'data-target', value: '#navbarNav'},
+                {prop: 'aria-controls', value: 'navbarNav'},
+                {prop: 'aria-expanded', value: 'false'},
+                {prop: 'aria-label', value: 'Toggle navigation'},
+            ]
+        );
+        const span = DOMHelper.createElement(
+            'span',
+            ['navbar-toggler-icon']
+        );
         button.appendChild(span);
         return button;
     }
     renderNavItem(navItem){
-        const navItemElement = document.createElement('li');
-        const navAnchorElement = document.createElement('a');
-        navItemElement.classList.add('nav-item');
-        navAnchorElement.classList.add('nav-link');
-        navAnchorElement.setAttribute('href', '#');
+        const navItemElement = DOMHelper.createElement(
+            'li',
+            ['nav-item']
+        );
+        const navAnchorElement = DOMHelper.createElement(
+            'a',
+            ['nav-link'],
+            [
+                {prop: 'href', value: '#'}
+            ]
+        );
         navAnchorElement.innerText = navItem;
         navItemElement.appendChild(navAnchorElement);
         return navItemElement;
     }
     renderNavList(){
-        const navListContainer = document.createElement('div');
-        const navListElement = document.createElement('ul');
-        navListContainer.classList.add('collapse');
-        navListContainer.classList.add('navbar-collapse');
-        navListContainer.setAttribute('id', 'navbarNav');
-        navListElement.classList.add('navbar-nav');
-        navListElement.classList.add('d-flex');
-        navListElement.classList.add('justify-content-between');
-        navListElement.classList.add('w-100');
+        const navListContainer = DOMHelper.createElement(
+            'div',
+            ['collapse', 'navbar-collapse'],
+            [
+                {prop: 'id', value: 'navbarNav'}
+            ]
+        );
+        const navListElement = DOMHelper.createElement(
+            'ul',
+            ['navbar-nav', 'd-flex', 'justify-content-between', 'w-100']
+        );
         this.navList.forEach((navItem) => {
             navListElement.appendChild(this.renderNavItem(navItem));
         });
@@ -47,18 +63,20 @@ export default class Links {
         return navListContainer;
     }
     renderNavElement(){
-        const navElement = document.createElement('nav');
-        navElement.classList.add('navbar');
-        navElement.classList.add('navbar-expand-lg');
-        navElement.classList.add('navbar-dark');
+        const navElement = DOMHelper.createElement(
+            'nav',
+            ['navbar', 'navbar-expand-lg', 'navbar-dark']
+        );
         navElement.appendChild(this.renderButton());
         navElement.appendChild(this.renderNavList());
         return navElement;
     }
     render(){
-        const logoContainer = document.createElement('div');
-        logoContainer.classList.add('col-3');
-        logoContainer.appendChild(this.renderNavElement());
-        return logoContainer;
+        const linkContainer = DOMHelper.createElement(
+            'div',
+            ['col-3']
+        );
+        linkContainer.appendChild(this.renderNavElement());
+        return linkContainer;
     }
 }
