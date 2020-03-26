@@ -1,5 +1,5 @@
-import * as DOMHelper from "./DOMHelper";
+import * as DOMHelper from './DOMHelper';
 
 export {
-    DOMHelper
-}
+  DOMHelper,
+};
