@@ -6,6 +6,8 @@
 
 ![alt text](./docs/demo.gif)
 
+## [Live Demo](https://mrnadaara.github.io/restaurant-js/)
+
 ## Get Started
 
 1. Clone repo ``` git clone https://github.com/mrnadaara/restaurant-js.git ```
